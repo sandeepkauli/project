@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include 'config.php';
 include 'header.php';
 include 'sidebar.php';
@@ -24,7 +25,7 @@ include 'sidebar.php';
       </div><!-- /.container-fluid -->
     </section>
 
-    
+    <?php include 'projects.php';  ?>
     
     
   <?php include 'footer.php'; ?>

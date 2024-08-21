@@ -14,8 +14,8 @@ if (isset($_POST['submit'])) {
     // Validate input
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
-    $cpassword = $_POST['cpassword'];
+    $password = md5($_POST['password']);
+    $cpassword = md5($_POST['cpassword']);
 
     if ($password !== $cpassword) {
         echo "Passwords do not match";
@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
           echo "Email already exist";
         }else{
 
-        $sql = "INSERT INTO user (name, email, password) VALUES ('$name', '$email', md5('$password'))";
+        $sql = "INSERT INTO user (name, email, password) VALUES ('$name', '$email', '$password')";
         $result = mysqli_query($conn, $sql);
 
         if ($result) {
@@ -99,7 +99,7 @@ if (isset($_POST['submit'])) {
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <a href="login.php"><b>Admin</b>LTE</a>
   </div>
 
   <div class="card">

@@ -11,10 +11,12 @@ if (isset($_POST['submit']))
     $question = $_POST['question'];
     $desc = $_POST['description'];
     $answer = $_POST['answer'];
+
     $photo= $_FILES['photo']['name'];
     $path="dist/img/" . $photo;
     $tmpname= $_FILES['photo']['tmp_name'];
     $isuploded= move_uploaded_file($tmpname,$path);
+    
     $errors = array();
     $maxsize = 2097152; // 2 MB
     $acceptable = array
